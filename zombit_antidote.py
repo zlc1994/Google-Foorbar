@@ -34,19 +34,16 @@ The list of meetings will not necessarily be ordered in any particular fashion.
 """
 
 
-def ras(start, final, k, n):
-    """
-    RECURSIVE-ACTIVITY-SELECTOR
-
+def ras(start, finish, k, n):
+    """RECURSIVE-ACTIVITY-SELECTOR
     This is a example in the Introduction to Algorithms 16th chapter.
-    Greedy Algorithm can solve it nicely.
 
     """
     m = k+1
-    while m <= n and start[m] < final[k]:
+    while m <= n and start[m] < finish[k]:
         m += 1
     if m <= n:
-        return [[start[m], final[m]]] + ras(start, final, m, n)
+        return [[start[m], finish[m]]] + ras(start, finish, m, n)
     else:
         return []
 
@@ -58,11 +55,11 @@ def anwser(meetings):
     #init a virtual activity start at 0, and end at 0
     meetings.append([0,0])
    
-    #sort meetings by the progressive final time
+    #sort meetings by the progressive finish time
     sort_meetings = sorted(meetings, key=lambda x: x[1])
 
     start = [i[0] for i in meetings]
-    final = [i[1] for i in meetings]
+    finish = [i[1] for i in meetings]
 
-    return len(ras(start, final, 0, n)
+    return len(ras(start, finish, 0, n)
 

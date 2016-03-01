@@ -32,9 +32,9 @@ should be 0 or greater, and a single integer digit.
 
 
 def anwser(x):
-    """
-    If the number is [0-9], just return itself. 
+    """If the number is [0-9], just return itself. 
     Otherwise recursive sum the every digits of the number.
+    
     """
     if x in range(0,10):
         return x
